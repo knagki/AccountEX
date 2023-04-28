@@ -17,7 +17,7 @@
 			<input type="hidden" name="command" value="transaction_write">
 			<table>
 				<tr>
-					<td>출금가능금액 ${account.balance}원</td>
+					<th colspan="2">출금가능금액 ${account.balance}원</th>
 				</tr>
 					<tr>
 						<th>본인 계좌번호: </th>

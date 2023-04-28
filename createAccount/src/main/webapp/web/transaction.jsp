@@ -13,6 +13,7 @@
 <body>
 	<div id="wrap" align="center">
 		<h2>중앙 은행</h2>
+		<h2 id="date"></h2> <!-- 현재 날짜를 보여줄 위치 -->
 		<h2>${customer.name}님계좌 내역</h2>	
 		<h2>금액 ${account.balance}원</h2>
 		<table>
@@ -42,5 +43,18 @@
 			<input type="submit" value="돌아가기" onclick="location.href='AccountServlet?command=indexAfterLogin';">
 			<!-- location.href='AccountServlet?command=transactionFormAction'; -->
 	</div>
+	<script type="text/javascript">
+		// 현재 날짜를 표시해주는 함수
+		function showDate() {
+			var today = new Date();
+			var year = today.getFullYear();
+			var month = today.getMonth() + 1;
+			var day = today.getDate();
+			var dateString = year + "년 " + month + "월 " + day + "일";
+			document.getElementById("date").innerHTML = dateString;
+		}
+		// 매 초마다 현재 날짜를 갱신
+		setInterval(showDate, 0);
+	</script>
 </body>
 </html>
