@@ -1,5 +1,7 @@
 package dto;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class TransactionVO {
@@ -8,7 +10,7 @@ public class TransactionVO {
 	private String receiver_account;
 	private int amount;
 	private String send_context;
-	private Date transaction_date;
+	private LocalTime transaction_date;
 
 	public int getTransaction_num() {
 		return transaction_num;
@@ -50,11 +52,11 @@ public class TransactionVO {
 		this.send_context = send_context;
 	}
 
-	public Date getTransaction_date() {
+	public LocalTime getTransaction_date() {
 		return transaction_date;
 	}
 
-	public void setTransaction_date(Date transaction_date) {
+	public void setTransaction_date(LocalTime transaction_date) {
 		this.transaction_date = transaction_date;
 	}
 

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,8 +45,8 @@ public class TransactionDAO {
 				tVo.setReceiver_account(rs.getString("receiver_account"));
 				tVo.setAmount(rs.getInt("amount"));
 				tVo.setSend_context(rs.getString("send_context"));
-				tVo.setTransaction_date(rs.getTimestamp("transaction_date"));
-
+				// Convert the timestamp to LocalDateTime
+				tVo.setTransaction_date(LocalTime.now());
 				list.add(tVo);
 
 			}
@@ -61,7 +62,7 @@ public class TransactionDAO {
 	// 일단은 본인 계좌번호도 고정으로 설정해 둠
 	public void insertTransction(TransactionVO tVo) {
 		String sql = "insert into transaction(transaction_num, sender_account, receiver_account, amount, send_context, transaction_date) "
-				+ "values(transaction_seq.nextval, ?, ?, ?, ?, SYSDATE )";
+				+ "values(transaction_seq.nextval, ?, ?, ?, ?, TO_DATE(TO_CHAR(SYSDATE, 'HH:MI:SS') )";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;

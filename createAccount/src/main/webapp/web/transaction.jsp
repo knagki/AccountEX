@@ -12,7 +12,8 @@
 </head>
 <body>
 	<div id="wrap" align="center">
-		<h1>${customer.name}님계좌 내역</h1>	
+		<h2>중앙 은행</h2>
+		<h2>${customer.name}님계좌 내역</h2>	
 		<h2>금액 ${account.balance}원</h2>
 		<table>
 			<tr>
@@ -29,8 +30,8 @@
 			</tr>
 			<c:forEach var="transaction" items="${transaction}">
 				<tr class="record">
-					<td><fmt:formatDate value="${transaction.transaction_date}" /></td>
-					<td><input type="hidden" name="sender_account"> ${transaction.sender_account}</td>
+					<td><fmt:formatDate value="${transaction.transaction_date}" type="time" /></td>
+					<td>${transaction.sender_account}</td>
 					<td>${transaction.receiver_account}</td>
 					<td>${transaction.amount}</td>
 					<td>${transaction.send_context}</td>
