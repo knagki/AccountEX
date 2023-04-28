@@ -37,6 +37,9 @@
 				</tr>
 			</c:forEach>
 		</table>
+			<br><br>
+			<input type="submit" value="돌아가기" onclick="location.href='AccountServlet?command=indexAfterLogin';">
+			<!-- location.href='AccountServlet?command=transactionFormAction'; -->
 	</div>
 </body>
 </html>
